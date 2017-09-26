@@ -1,0 +1,17 @@
+<div class="card">
+  <% if @surveys.any?() %>
+  <h3>Here are your surveys:</h3>
+
+  <ul>
+    <% @surveys.each() do |survey| %>
+      <li><a href="/take_survey/<%= survey.id() %>"><%= survey.title() %></a> </li>
+    <% end %>
+  </ul>
+
+<% else %>
+
+    <p>There are no surveys yet!</p>
+
+<% end %>
+<a href="/"><button class="btn">Return To Homepage</a>
+</div>

@@ -1,5 +1,7 @@
 body {
+  font-family: 'Arvo', serif;
   background-color: cadetblue;
+  color: #123;
 }
 
 .card {
@@ -9,4 +11,5 @@ body {
 #mustardMan {
   border-radius: 42px;
   width: 90%;
+  padding: 50px;
 }

@@ -1,0 +1,46 @@
+
+
+
+<div class="row">
+  <div class="col-sm-6">
+    <div class="card">
+      <h3>Update  this question's information:</h3>
+      <h4>'<%= @question.question() %>'</h4>
+
+      <form action="/question/<%= @question.id() %>" method="post">
+        <div class="form-group">
+          <label for="answer">Add answers to this question:</label>
+          <input type="text" name="answer" id="answer">
+          <button type="submit" class="btn">Add Answer</button>
+        </div>
+      </form>
+
+      <form action="/question/<%= @question.id() %>" method="post">
+        <div class="form-group">
+          <input name="_method" type="hidden" value="delete">
+          <label for="delete">Delete this question:</label>
+          <button type="submit" class="btn btn-danger">Delete Question</button>
+        </div>
+      </form>
+      <a href="/"><button class="btn">Return To Homepage</a>
+    </div>
+  </div>
+  <div class="col-sm-6">
+    <div class="card">
+      <h1><%= @question.question() %></h1>
+
+      <% if @question.answers().any?() %>
+        <h3>Here are all the answers for this question:</h3>
+
+        <ul>
+          <% @question.answers().each() do |answer| %>
+            <li><%= answer.answer() %></li>
+          <% end %>
+        </ul>
+
+        <% else %>
+          <p>There are no answers for this question!</p>
+      <% end %>
+    </div>
+  </div>
+</div>

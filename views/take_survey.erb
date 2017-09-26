@@ -1,0 +1,23 @@
+
+
+
+<div class="card">
+  <h3><%= @survey.title %></h3>
+  <% if @questions.any?() %>
+      <% @questions.each do |q| %>
+        <label for="question"><%= q.question %></label>
+        <select class="" name="question">
+        <% q.answers.each do |answer| %>
+          <option value="<%= q %>"><%= answer.answer %></option>
+        <% end %>
+        </select>
+      <% end %>
+
+
+    <% else %>
+
+      <p>There are no questions yet!</p>
+
+  <% end %>
+  <a href="/"><button class="btn">Return To Homepage</a>
+</div>
