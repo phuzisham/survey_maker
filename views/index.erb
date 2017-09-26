@@ -1,0 +1,33 @@
+<div class="row">
+  <div class="col-sm-6">
+    <div class="card">
+      <h3>Add New Survey</h3>
+
+      <form action="/create_survey" method="post">
+        <div class="form-group">
+          <label for="title" class="form-label">Title your survey:</label>
+          <input type="text" name="title" class="form-control" id="title" autofocus>
+          <button type="submit" class="button btn">Add Survey</button>
+        </div>
+      </form>
+    </div>
+  </div>
+  <div class="col-sm-6">
+    <div class="card">
+      <% if @surveys.any?() %>
+      <h3>Here are your surveys:</h3>
+
+      <ul>
+        <% @surveys.each() do |survey| %>
+          <li><a href="/survey/<%= survey.id() %>"><%= survey.title() %></a> </li>
+        <% end %>
+      </ul>
+
+    <% else %>
+
+        <p>There are no surveys yet!</p>
+
+    <% end %>
+    </div>
+  </div>
+</div>
