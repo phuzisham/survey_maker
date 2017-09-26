@@ -1,0 +1,53 @@
+<div class="row">
+  <div class="col-sm-6">
+    <div class="card">
+      <h3> Update the <%=@survey.title() %> survey:</h3>
+
+      <form action="/survey/<%= @survey.id() %>" method="post">
+        <div class="form-group">
+          <label for="question" class="form-label">New questions name:</label>
+          <input type="text" name="question" class"form-control" id="question" autofocus>
+          <button type="submit" class="button btn">Add Question</button>
+        </div>
+      </form>
+      <br>
+      <form action="/survey/<%= @survey.id() %>" method="post">
+        <div class="form-group">
+          <input type="hidden" name="_method" value="patch">
+
+          <label for="title">Rename your survey:</label>
+          <input type="text" name="title" id="title">
+
+          <button type="submit" class="button btn">Update Survey</button>
+        </div>
+      </form>
+      <br>
+      <form action="/survey/<%= @survey.id() %>" method="post">
+        <div class="form-group">
+          <input name="_method" type="hidden" value="delete">
+          <label for="delete">Delete your survey:</label>
+          <button type="submit" class="button btn">Delete Survey</button>
+        </div>
+      </form>
+      <a href="/"><button class="btn">Return To Homepage</a>
+    </div>
+  </div>
+  <div class="col-sm-6">
+    <div class="card">
+      <h1><%= @survey.title() %></h1>
+
+      <% if @survey.questions().any?() %>
+        <h3>Here are all the questions in this survey:</h3>
+
+        <ul>
+          <% @survey.questions().each() do |question| %>
+            <li><a href="/question/<%= question.id() %>"><%= question.question() %></a></li>
+          <% end %>
+        </ul>
+
+        <% else %>
+          <p>There are no questions on this survey!</p>
+      <% end %>
+    </div>
+  </div>
+</div>

@@ -9,4 +9,12 @@ describe(Survey) do
       expect(test_survey.questions).to(eq([test_question1, test_question2]))
     end
   end
+
+  describe("#validate") do
+    it("Capitalize survey title") do
+      survey = Survey.create(:title => 'punk brewster?')
+      expect(survey.title).to eq('Punk Brewster?')
+    end
+  end
+
 end

@@ -5,3 +5,8 @@ body {
 .card {
   padding: 20px;
 }
+
+#mustardMan {
+  border-radius: 42px;
+  width: 90%;
+}
